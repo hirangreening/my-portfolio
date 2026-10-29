@@ -14,19 +14,19 @@ export default async function Home() {
       title: "SCMS Paper Insights",
       tech: "PHP, JavaScript, SQL",
       description: "Built a full-stack web app to manage 80+ university courses for the School of Computing and Mathematical Sciences. Earned an A grade.",
-      link: "https://github.com/hirangreening" 
+      link: "https://github.com/hirangreening"
     },
     {
       title: "Java Networking & Algorithms",
       tech: "Java, Sockets, TLS",
       description: "Built a multi-client web server using sockets and threads, and implemented core algorithms like external sorting and KMP string search.",
-      link: "https://github.com/hirangreening" 
+      link: "https://github.com/hirangreening"
     },
     {
       title: "Local AI Homelab",
       tech: "Linux, Docker, llama.cpp",
       description: "Configured a headless Linux server to host containerised applications and a fully offline, GPU-accelerated local AI coding environment.",
-      link: "" 
+      link: ""
     }
   ];
 
@@ -38,7 +38,7 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen p-8 md:p-24 bg-gray-900 text-white font-sans flex flex-col">
-      {/* Hero Section - Contact Icons moved here */}
+      {/* Hero Section */}
       <section className="max-w-3xl mx-auto mb-24 text-center">
         <h1 className="text-5xl font-bold mb-4 tracking-tight">Hiran Greening</h1>
         <p className="text-xl text-gray-400 mb-8">
@@ -51,8 +51,14 @@ export default async function Home() {
           <a href="https://linkedin.com/in/hiran-greening" target="_blank" rel="noopener noreferrer" className="bg-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-600 transition">
             LinkedIn
           </a>
-          <a href="mailto:hirangreening@pm.me" className="bg-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
-            Email Me
+
+          {/* The updated Email button with icon */}
+          <a href="mailto:hirangreening@pm.me" className="bg-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+            Email
           </a>
         </div>
       </section>
