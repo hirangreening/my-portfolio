@@ -4,19 +4,19 @@ export default function Home() {
       title: "SCMS Paper Insights",
       tech: "PHP, JavaScript, SQL",
       description: "Built a full-stack web app to manage 80+ university courses for the School of Computing and Mathematical Sciences. Earned an A grade.",
-      link: "https://github.com/hirangreening" 
+      link: "https://github.com/hirangreening/scms-paper-insights"
     },
     {
       title: "Java Networking & Algorithms",
       tech: "Java, Sockets, TLS",
       description: "Built a multi-client web server using sockets and threads, and implemented core algorithms like external sorting and KMP string search.",
-      link: "https://github.com/hirangreening" 
+      link: "https://github.com/hirangreening/java-networking-scripts"
     },
     {
       title: "Local AI Homelab",
       tech: "Linux, Docker, llama.cpp",
       description: "Configured a headless Linux server to host containerised applications and a fully offline, GPU-accelerated local AI coding environment.",
-      link: "" 
+      link: ""
     }
   ];
 
@@ -47,13 +47,9 @@ export default function Home() {
               <h3 className="text-xl font-bold mb-2">{project.title}</h3>
               <p className="text-sm text-blue-400 mb-3">{project.tech}</p>
               <p className="text-gray-300 mb-4">{project.description}</p>
-              
-              {/* This line checks if there is a link, and only shows the button if there is one */}
-              {project.link && (
-                <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-white hover:text-blue-400 underline underline-offset-4">
-                  View Code &rarr;
-                </a>
-              )}
+              <a href={project.link} target="_blank" className="text-sm font-semibold text-white hover:text-blue-400 underline underline-offset-4">
+                View Code &rarr;
+              </a>
             </div>
           ))}
         </div>
