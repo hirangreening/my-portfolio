@@ -1,22 +1,34 @@
-export default function Home() {
+import { cacheLife } from 'next/cache';
+
+// 1. Define the cached function OUTSIDE the component
+async function getCopyrightYear() {
+  'use cache';
+  cacheLife('max');
+  return new Date().getFullYear();
+}
+
+export default async function Home() {
+  // 2. Call the function and store it in a variable INSIDE the component
+  const currentYear = await getCopyrightYear();
+
   const projects = [
     {
       title: "SCMS Paper Insights",
       tech: "PHP, JavaScript, SQL",
       description: "Built a full-stack web app to manage 80+ university courses for the School of Computing and Mathematical Sciences. Earned an A grade.",
-      link: "https://github.com/hirangreening" 
+      link: "https://github.com/hirangreening"
     },
     {
       title: "Java Networking & Algorithms",
       tech: "Java, Sockets, TLS",
       description: "Built a multi-client web server using sockets and threads, and implemented core algorithms like external sorting and KMP string search.",
-      link: "https://github.com/hirangreening" 
+      link: "https://github.com/hirangreening"
     },
     {
       title: "Local AI Homelab",
       tech: "Linux, Docker, llama.cpp",
       description: "Configured a headless Linux server to host containerised applications and a fully offline, GPU-accelerated local AI coding environment.",
-      link: "" 
+      link: ""
     }
   ];
 
@@ -28,19 +40,18 @@ export default function Home() {
 
   return (
     <main className="min-h-screen p-8 md:p-24 bg-gray-900 text-white font-sans flex flex-col">
-      {/* Hero Section - Simplified CTA */}
+      {/* Hero Section */}
       <section className="max-w-3xl mx-auto mb-24 text-center">
         <h1 className="text-5xl font-bold mb-4 tracking-tight">Hiran Greening</h1>
         <p className="text-xl text-gray-400 mb-8">
-          Computer Science Graduate | Full-Stack Developer
+          Computer Science Graduate | Full-Stack Developer | Homelab Tinkerer
         </p>
-        {/* Single primary CTA */}
         <a href="#projects" className="bg-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition inline-block">
           View My Work
         </a>
       </section>
 
-      {/* Projects Section - Moved up for proof */}
+      {/* Projects Section */}
       <section id="projects" className="max-w-3xl mx-auto mb-24 w-full">
         <h2 className="text-2xl font-bold mb-6 border-b border-gray-700 pb-2">Projects</h2>
         <div className="grid gap-8">
@@ -78,7 +89,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section - Moved down */}
+      {/* About Section */}
       <section className="max-w-3xl mx-auto mb-24 w-full">
         <h2 className="text-2xl font-bold mb-6 border-b border-gray-700 pb-2">About Me</h2>
         <div className="text-gray-300 space-y-4 text-lg">
@@ -91,7 +102,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact / Footer - The conversion point */}
+      {/* Contact / Footer */}
       <footer className="max-w-3xl mx-auto w-full border-t border-gray-700 pt-8 pb-12 text-center mt-auto">
         <h2 className="text-xl font-bold mb-6">Get in Touch</h2>
         <div className="flex justify-center gap-4 flex-wrap">
@@ -109,7 +120,7 @@ export default function Home() {
           </a>
         </div>
         <p className="text-gray-500 text-sm mt-8">
-          &copy; {new Date().getFullYear()} Hiran Greening. Built with Next.js & Tailwind.
+          &copy; {currentYear} Hiran Greening. Built with Next.js & Tailwind.
         </p>
       </footer>
     </main>
