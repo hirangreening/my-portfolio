@@ -1,14 +1,15 @@
 import { cacheLife } from 'next/cache';
 
-// 1. Define the cached function OUTSIDE the component
+// 1. The cached function that calculates the year ONCE
 async function getCopyrightYear() {
   'use cache';
   cacheLife('max');
   return new Date().getFullYear();
 }
 
+// 2. The main component (must be async to await the year)
 export default async function Home() {
-  // 2. Call the function and store it in a variable INSIDE the component
+  // 3. Call the function and store it
   const currentYear = await getCopyrightYear();
 
   const projects = [
