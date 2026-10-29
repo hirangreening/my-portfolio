@@ -38,6 +38,22 @@ export default function Home() {
         </div>
       </section>
 
+      {/* About Section */}
+      <section className="max-w-3xl mx-auto mb-20">
+        {<h2 className="text-2xl font-bold mb-6 border-b border-gray-700 pb-2">About Me</h2>}
+        <div className="text-gray-300 space-y-4">
+          <p>
+            I'm a Computer Science graduate based in Cambridge, Waikato. I enjoy building full-stack applications, troubleshooting IT systems, and experimenting with AI tools in my homelab.
+          </p>
+          <p>
+            I'm currently looking for junior developer roles where I can contribute to meaningful projects and build useful tools for the community.
+          </p>
+        </div>
+        <p className="pt-4">
+          You can reach me at <a href="mailto:hirangreening@pm.me" className="text-blue-400 hover:underline">hirangreening@pm.me</a>.
+        </p>
+      </section>
+
       {/* Projects Section */}
       <section className="max-w-3xl mx-auto">
         <h2 className="text-2xl font-bold mb-6 border-b border-gray-700 pb-2">Projects</h2>
@@ -47,7 +63,7 @@ export default function Home() {
               <h3 className="text-xl font-bold mb-2">{project.title}</h3>
               <p className="text-sm text-blue-400 mb-3">{project.tech}</p>
               <p className="text-gray-300 mb-4">{project.description}</p>
-              
+
               {/* This line checks if there is a link, and only shows the button if there is one */}
               {project.link && (
                 <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-white hover:text-blue-400 underline underline-offset-4">
