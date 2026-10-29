@@ -1,15 +1,12 @@
 import { cacheLife } from 'next/cache';
 
-// 1. The cached function that calculates the year ONCE
 async function getCopyrightYear() {
   'use cache';
   cacheLife('max');
   return new Date().getFullYear();
 }
 
-// 2. The main component (must be async to await the year)
 export default async function Home() {
-  // 3. Call the function and store it
   const currentYear = await getCopyrightYear();
 
   const projects = [
@@ -17,19 +14,19 @@ export default async function Home() {
       title: "SCMS Paper Insights",
       tech: "PHP, JavaScript, SQL",
       description: "Built a full-stack web app to manage 80+ university courses for the School of Computing and Mathematical Sciences. Earned an A grade.",
-      link: "https://github.com/hirangreening"
+      link: "https://github.com/hirangreening" 
     },
     {
       title: "Java Networking & Algorithms",
       tech: "Java, Sockets, TLS",
       description: "Built a multi-client web server using sockets and threads, and implemented core algorithms like external sorting and KMP string search.",
-      link: "https://github.com/hirangreening"
+      link: "https://github.com/hirangreening" 
     },
     {
       title: "Local AI Homelab",
       tech: "Linux, Docker, llama.cpp",
       description: "Configured a headless Linux server to host containerised applications and a fully offline, GPU-accelerated local AI coding environment.",
-      link: ""
+      link: "" 
     }
   ];
 
@@ -41,19 +38,27 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen p-8 md:p-24 bg-gray-900 text-white font-sans flex flex-col">
-      {/* Hero Section */}
+      {/* Hero Section - Contact Icons moved here */}
       <section className="max-w-3xl mx-auto mb-24 text-center">
         <h1 className="text-5xl font-bold mb-4 tracking-tight">Hiran Greening</h1>
         <p className="text-xl text-gray-400 mb-8">
-          Computer Science Graduate | Full-Stack Developer | Homelab Tinkerer
+          Computer Science Graduate | Full-Stack Developer | IT Support
         </p>
-        <a href="#projects" className="bg-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition inline-block">
-          View My Work
-        </a>
+        <div className="flex justify-center gap-4 flex-wrap">
+          <a href="https://github.com/hirangreening" target="_blank" rel="noopener noreferrer" className="bg-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-600 transition">
+            GitHub
+          </a>
+          <a href="https://linkedin.com/in/hiran-greening" target="_blank" rel="noopener noreferrer" className="bg-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-600 transition">
+            LinkedIn
+          </a>
+          <a href="mailto:hirangreening@pm.me" className="bg-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
+            Email Me
+          </a>
+        </div>
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="max-w-3xl mx-auto mb-24 w-full">
+      {/* Projects Section - First */}
+      <section className="max-w-3xl mx-auto mb-24 w-full">
         <h2 className="text-2xl font-bold mb-6 border-b border-gray-700 pb-2">Projects</h2>
         <div className="grid gap-8">
           {projects.map((project, index) => (
@@ -71,7 +76,7 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Skills Section */}
+      {/* Skills Section - Second */}
       <section className="max-w-3xl mx-auto mb-24 w-full">
         <h2 className="text-2xl font-bold mb-6 border-b border-gray-700 pb-2">Skills</h2>
         <div className="grid md:grid-cols-3 gap-8">
@@ -90,7 +95,7 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* About Section - Third */}
       <section className="max-w-3xl mx-auto mb-24 w-full">
         <h2 className="text-2xl font-bold mb-6 border-b border-gray-700 pb-2">About Me</h2>
         <div className="text-gray-300 space-y-4 text-lg">
@@ -103,25 +108,13 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Contact / Footer */}
-      <footer className="max-w-3xl mx-auto w-full border-t border-gray-700 pt-8 pb-12 text-center mt-auto">
-        <h2 className="text-xl font-bold mb-6">Get in Touch</h2>
-        <div className="flex justify-center gap-4 flex-wrap">
-          <a href="https://github.com/hirangreening" target="_blank" rel="noopener noreferrer" className="bg-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-600 transition">
-            GitHub
-          </a>
-          <a href="https://linkedin.com/in/hiran-greening" target="_blank" rel="noopener noreferrer" className="bg-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-600 transition">
-            LinkedIn
-          </a>
-          <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" className="bg-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-600 transition">
-            Download CV
-          </a>
-          <a href="mailto:hirangreening@pm.me" className="bg-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
-            Email Me
-          </a>
-        </div>
-        <p className="text-gray-500 text-sm mt-8">
+      {/* Minimal Footer */}
+      <footer className="max-w-3xl mx-auto w-full border-t border-gray-700 pt-8 pb-4 text-center mt-auto">
+        <p className="text-gray-500 text-sm">
           &copy; {currentYear} Hiran Greening. Built with Next.js & Tailwind.
+        </p>
+        <p className="text-gray-500 text-sm mt-2">
+          <a href="mailto:hirangreening@pm.me" className="hover:text-blue-400 transition">hirangreening@pm.me</a>
         </p>
       </footer>
     </main>
